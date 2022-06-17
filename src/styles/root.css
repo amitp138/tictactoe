@@ -12,7 +12,18 @@ body {
   button:hover {
     cursor: pointer;
    }
-  
+  .info{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    align-items: center;
+  }
+  .info>button{
+    
+    width: 60px;
+    background-color: green;
+  }
   .app {
     font-size: 20px;
     display: flex;
