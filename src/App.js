@@ -19,9 +19,9 @@ function App() {
   console.log(board);
   const player=()=>{
     if(user){
-        return `chance of player ${pl1}`
+        return `chance to play:  ${pl1}`
     }
-     return `chance of player ${pl2}`
+     return `chance of play: ${pl2}`
 }
 const won=()=>{
 return `winner is ${winner}`
@@ -44,7 +44,10 @@ return `winner is ${winner}`
  
   const winner = calculateWinner(board);
   
- 
+  const handleNewGamer=()=>{
+    setStartGame(true)
+   setBoard(Array(9).fill(null))
+}
   const handleSubmit = () => {
     setStartGame(false);
   };
@@ -76,13 +79,19 @@ return `winner is ${winner}`
             submit
           </button>
         </div>
-      ) : (<div>
+      ) : (
+      <div><div className="heading">
+        <div className="newGame">
+        <button onClick={handleNewGamer} >start new game</button>
+        </div>
         <p> {winner && won()}
         {!winner && !moveLeft && player()}
         {!winner && moveLeft  && "match tied"}
+        
         </p>
-                <Board board={board} handleSquare={handleSquare} />
         </div>
+                <Board board={board} handleSquare={handleSquare} />
+       </div>
       )}
     </div>
   );
